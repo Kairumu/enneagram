@@ -1,7 +1,7 @@
 import { useState }  from 'react';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
-import Const from "./Const";
+import Consts from "../Consts";
 
 const QuestionCard = (props) => {
     const [ answer, setAnswer ] = useState(props.a);
@@ -16,18 +16,16 @@ const QuestionCard = (props) => {
                         Array(5).fill(0).map((_, idx) => {
                             const score = idx+1;
                             return (
-                            <Form.Check
-                                key={idx}
-                                name={`group-${props.idx}`}
-                                style={{ fontSize:"12px", }}
-                                inline type="radio"
-                                label={Const.answers[idx]}
-                                defaultChecked={answer === score}
-                                onClick={()=>{ 
-                                    setAnswer(score);
-                                    props.setAnswer(score); 
-                                }}
-                            />
+                                <Form.Check
+                                    key={idx}
+                                    name={`group-${props.n}`}
+                                    style={{ fontSize:"12px", }}
+                                    inline type="radio"
+                                    label={Consts.answers[idx]}
+                                    id={`group-${props.n}-${idx}`}
+                                    defaultChecked={answer === score}
+                                    onClick={()=>{ setAnswer(score); props.setAnswer(score); }}
+                                />
                             );
                         })
                     }

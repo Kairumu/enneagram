@@ -1,15 +1,12 @@
-import { useState, } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 const Home = () => {
-    const [ state, setState ] = useState(false);
-
     return (
         <div className="home">
             <div className="position-relative vh-100 vw-100">
                 <div className="position-absolute top-50 start-50 translate-middle">
-                    <Card className="vw-40" style={{ borderRadius:"0", }}>
+                    <Card style={{ borderRadius:"0", width:"80vw", maxWidth:"800px", }}>
                         <Card.Body className="p-5">
                             <Card.Title className="fw-bold">한국형 에니어그램 성격 유형검사 (KEPTI)</Card.Title>
                             <Card.Text className="pt-4">
@@ -23,7 +20,7 @@ const Home = () => {
                                     </a> 연락부탁드립니다.
                                 </small>
                             </Card.Text>
-                            <Button variant={state ? "success" : "danger"} onClick={() => setState(!state)}>
+                            <Button variant="danger" onClick={() => {window.location.href="/test"}}>
                                 검사 시작
                             </Button>
                         </Card.Body>
